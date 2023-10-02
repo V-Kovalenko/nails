@@ -12,6 +12,12 @@ const useContacts = defineStore('useContacts', () => {
     ])
 
     const phoneNumber = '+79001052270'
+    const vkProfileUrl = `https://vk.com/id651967871`
+    const okProfileUrl = `https://ok.ru/profile/573045179474`
+    const isAppInstalled = (appName) => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera
+        return userAgent.toLowerCase().indexOf(appName) > -1
+    }
     const openWhatsApp = (item) => {
         const url = `whatsapp://send?phone=${phoneNumber}`;
         if (item.title === 'whatsapp') {
@@ -29,20 +35,12 @@ const useContacts = defineStore('useContacts', () => {
         }
 
     };
+
     const openVk = (item) => {
         const url = `https://vk.com/id651967871`
+        const appUrl = 'vk://vk.com/id651967871';
         if (item.title === 'в контакте') {
-            // Проверяем, поддерживается ли протокол vk:// на устройстве пользователя
-            if (/android/i.test(navigator.userAgent)) {
-                // Для Android
-                window.location.href = url;
-            } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
-                // Для iOS
-                window.location.href = url;
-            } else {
-                // Если протокол whatsapp:// не поддерживается, можно открыть WhatsApp Web
-                window.open('https://vk.com/id651967871', '_blank');
-            }
+           window.location.href = isAppInstalled('vk')? appUrl : vkProfileUrl
         }
     }
 

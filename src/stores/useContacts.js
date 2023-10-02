@@ -11,7 +11,7 @@ const useContacts = defineStore('useContacts', () => {
         {url: new URL('@/assets/images/footer/whatsapp.png',import.meta.url), title: 'whatsapp', text: '+79001052270'},
     ])
 
-    const phoneNumber = 89001052270
+    const phoneNumber = '+79001052270'
     const openWhatsApp = (item) => {
         const url = `whatsapp://send?phone=${phoneNumber}`;
         if (item.title === 'whatsapp') {

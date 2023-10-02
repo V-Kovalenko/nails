@@ -13,7 +13,7 @@ const useContacts = defineStore('useContacts', () => {
 
     const phoneNumber = 89001052270
     const openWhatsApp = (item) => {
-        const url = `whatsapp://send?phone=${phoneNumber}}`;
+        const url = `whatsapp://send?phone=${phoneNumber}`;
         if (item.title === 'whatsapp') {
             // Проверяем, поддерживается ли протокол whatsapp:// на устройстве пользователя
             if (/android/i.test(navigator.userAgent)) {

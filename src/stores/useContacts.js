@@ -11,14 +11,14 @@ const useContacts = defineStore('useContacts', () => {
         {url: new URL('@/assets/images/footer/whatsapp.png',import.meta.url), title: 'whatsapp', text: '+79001052270'},
     ])
 
-    const phoneNumber = '+79001052270'
-    const vkProfileUrl = `https://vk.com/id651967871`
-    const okProfileUrl = `https://ok.ru/profile/573045179474`
-    const isAppInstalled = (appName) => {
+    const phoneNumber = '+79001052270' // телефон для whatsapp
+    const vkProfileUrl = `https://vk.com/id651967871` // init data для ВК
+    const okProfileUrl = `https://ok.ru/profile/573045179474` // init data для ОК
+    const isAppInstalled = (appName) => {  // проверка установлено ли приложение на телефоне (вк или ок в данном случае)
         const userAgent = navigator.userAgent || navigator.vendor || window.opera
         return userAgent.toLowerCase().indexOf(appName) > -1
     }
-    const openWhatsApp = (item) => {
+    const openWhatsApp = (item) => {  // открытие whatsapp при клике на иконку
         const url = `whatsapp://send?phone=${phoneNumber}`;
         if (item.title === 'whatsapp') {
             // Проверяем, поддерживается ли протокол whatsapp:// на устройстве пользователя
@@ -36,29 +36,18 @@ const useContacts = defineStore('useContacts', () => {
 
     };
 
-    const openVk = (item) => {
-        const url = `https://vk.com/id651967871`
+    const openVk = (item) => {   // открытие ВК при клике на иконку
         const appUrl = 'vk://vk.com/id651967871';
         if (item.title === 'в контакте') {
            window.location.href = isAppInstalled('vk')? appUrl : vkProfileUrl
         }
     }
 
-    const openOk = (item) => {
-        const url = `https://ok.ru/profile/573045179474`
-        if (item.title === 'одноклассники') {
-            // Проверяем, поддерживается ли протокол ok:// на устройстве пользователя
-            if (/android/i.test(navigator.userAgent)) {
-                // Для Android
-                window.location.href = url;
-            } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
-                // Для iOS
-                window.location.href = url;
-            } else {
-                // Если протокол whatsapp:// не поддерживается, можно открыть WhatsApp Web
-                window.open('https://ok.ru/profile/573045179474', '_blank');
+    const openOk = (item) => { // открытие ОК при клике на иконку
+            const appUrl = 'ok://www.ok.ru/573045179474';
+            if (item.title === 'одноклассники') {
+                window.location.href = isAppInstalled('ok')? appUrl : okProfileUrl
             }
-        }
     }
     return{
         contacts, openWhatsApp, openVk, openOk

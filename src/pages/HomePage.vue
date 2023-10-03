@@ -132,7 +132,11 @@ const functionsForUseContacts = (it) => {
             <p>по номеру телефона</p>
           </div>
           <div class="home__footer-cards">
-            <div class="home__footer-card" v-for="item in contacts.contacts"  @click="functionsForUseContacts(item)">
+            <div :class="[
+                'home__footer-card',
+                {'home__footer-card_lg': item.title === 'адрес' || item.title === 'email'},
+                {'home__footer-card_sm': item.title !== 'адрес' && item.title !== 'email'}]"
+                 v-for="item in contacts.contacts" @click="functionsForUseContacts(item)">
               <img :src="item.url" alt="img" class="home__footer-card-img">
               <p class="home__footer-card-title">{{ item.title }}</p>
               <p class="home__footer-card-text">{{ item.text }}</p>
@@ -143,11 +147,12 @@ const functionsForUseContacts = (it) => {
     </main>
   </div>
 </template>
-
+<!--{'home__footer-card_sm': item.title === 'в контакте' && item.title === 'whatsapp'}-->
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
 
 .home {
+  //width: 100%;
   box-sizing: border-box;
   height: 100vh;
   /*section record start->>>*/
@@ -496,18 +501,25 @@ const functionsForUseContacts = (it) => {
 
   /*section footer start*/
   &__footer {
-    background: pink;
+    //background: pink;
+    background-color: $bg-section-about-nails;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
 
   }
 
   &__footer-container {
+    width: 100%;
     display: grid;
     grid-auto-rows: min-content;
     align-items: center;
     justify-items: center;
     padding: 2rem 1rem 5rem 1rem;
     margin: 0 auto;
-    //width: 50%;
+    grid-auto-flow: row;
 
   }
 
@@ -529,9 +541,9 @@ const functionsForUseContacts = (it) => {
 
   &__footer-cards {
     display: grid;
-    grid-template-columns: repeat(4, max-content);
-    gap: 1.5rem;
-
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1.2rem;
+    padding: 1rem;
   }
 
   &__footer-card {
@@ -540,10 +552,14 @@ const functionsForUseContacts = (it) => {
     grid-template-rows: repeat(3, max-content);
     align-items: center;
     justify-items: center;
-    gap: 1rem;
+    gap: .7rem;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 1);
     padding: 1rem;
     z-index: 1;
+    grid-column: span 2;
+    box-sizing: border-box;
+    //max-width: 95%;
+
     &:hover {
       scale: 1.1;
       transform: translateY(-2rem);
@@ -552,17 +568,31 @@ const functionsForUseContacts = (it) => {
     }
   }
 
+  &__footer-card_lg {
+    grid-column: span 4;
+    //background-color: #7600e1;
+  }
+
+  &__footer-card_sm {
+    grid-column: span;
+    //background-color: yellow;
+  }
+
   &__footer-card-img {
     height: 90px;
     background-size: cover;
+    background-color: $pink-color-size-and-bg-btn;
   }
 
   &__footer-card-title {
-   text-transform: uppercase;
+    text-transform: uppercase;
     font-weight: 700;
+
   }
 
   &__footer-card-text {
+    color: $title-color;
+    font-weight: 700;
 
   }
 

@@ -43,6 +43,7 @@ onUnmounted(() => { // удаляем эвент
   min-height: 10%;
   z-index: 100;
 
+
   &__wrapper {
     display: grid;
     grid-auto-flow: column;

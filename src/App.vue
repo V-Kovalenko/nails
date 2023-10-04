@@ -16,7 +16,7 @@ import Header from "@/components/layout/Header.vue";
 
 <style scoped lang="scss">
 .app {
-  max-width: 1920px;
+  //max-width: 1920px;
   margin: 0 auto;
   width: 100%;
   //padding: 1rem;

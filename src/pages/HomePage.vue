@@ -1,9 +1,4 @@
 <script setup>
-import Button from "@/components/ui/Button.vue";
-import {ref} from "vue";
-import useMyWorks from "@/stores/useMyWorks";
-import usePrice from "@/stores/usePrice";
-import useContacts from "@/stores/useContacts";
 import HomeRecord from "@/components/HomeRecord.vue";
 import HomeAboutNails from "@/components/HomeAboutNails.vue";
 import HomePeculiarities from "@/components/HomePeculiarities.vue";
@@ -12,13 +7,14 @@ import HomePrice from "@/components/HomePrice.vue";
 import HomeAboutMe from "@/components/HomeAboutMe.vue";
 import Footer from "@/components/layout/Footer.vue";
 
+
 </script>
 
 <template>
-  <div class="home">
+  <div class="home" id="start">
     <main>
 
-      <section class="home__record">
+      <section class="home__record" >
         <HomeRecord/>
       </section>
 
@@ -30,11 +26,11 @@ import Footer from "@/components/layout/Footer.vue";
         <HomePeculiarities/>
       </section>
 
-      <section class="home__my-works">
+      <section class="home__my-works"  id="works">
         <HomeMyWorks/>
       </section>
 
-      <section class="home__price">
+      <section class="home__price"  id="price">
         <HomePrice/>
       </section>
 
@@ -42,7 +38,7 @@ import Footer from "@/components/layout/Footer.vue";
         <HomeAboutMe/>
       </section>
 
-      <section class="home__footer">
+      <section class="home__footer"  id="contacts">
         <Footer/>
       </section>
     </main>

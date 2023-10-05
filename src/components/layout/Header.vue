@@ -17,6 +17,8 @@ onMounted(() => {  // монтируем эвент
 onUnmounted(() => { // удаляем эвент
   window.removeEventListener('scroll', handleScroll)
 })
+
+
 </script>
 
 <template>

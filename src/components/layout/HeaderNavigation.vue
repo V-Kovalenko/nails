@@ -2,23 +2,27 @@
 import {ref} from "vue";
 
 const navItems = ref([
-  {title: 'Главная', path: '/'},
-  {title: 'Работы', path: '/'},
-  {title: 'Прайс-лист', path: '/'},
-  {title: 'Записаться', path: '/'},
+  {title: 'Главная', path: '/',id: '#start'},
+  {title: 'Работы', path: '/', id:'#works'},
+  {title: 'Прайс-лист', path: '/', id: '#price'},
+  {title: 'Контакты', path: '/', id: '#contacts'},
 ])
+
 </script>
 
 <template>
-  <nav class="nav" >
+  <nav class="nav">
     <div class="nav__container" v-for="item in navItems">
-      <a href="/" class="nav__content"> {{ item.title }}</a>
+      <div class="nav__content">
+        <a :href="item.id"> {{ item.title }}</a>
+      </div>
     </div>
   </nav>
 </template>
 
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
+
 .nav {
   display: grid;
   grid-template-columns: repeat(5, auto);
@@ -31,9 +35,11 @@ const navItems = ref([
   &__container {
 
   }
+
   &__content {
     &:hover {
       color: $pink-color-size-and-bg-btn;
+      cursor: pointer;
     }
   }
 

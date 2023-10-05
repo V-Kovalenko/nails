@@ -3,12 +3,12 @@ import {ref} from "vue";
 
 const useContacts = defineStore('useContacts', () => {
     const contacts = ref([
-        {url: new URL('@/assets/images/footer/telephone.png',import.meta.url), title: 'телефон', text: '+79001052270'},
-        {url: new URL('@/assets/images/footer/whatsapp.png',import.meta.url), title: 'whatsapp', text: '+79001052270'},
-        {url: new URL('@/assets/images/footer/vk.png',import.meta.url), title: 'в контакте', text: 'https://vk.com/id651967871'},
-        {url: new URL('@/assets/images/footer/ok.png',import.meta.url), title: 'одноклассники', text: 'https://ok.ru/profile/573045179474'},
-        {url: new URL('@/assets/images/footer/address.png',import.meta.url), title: 'адрес', text: 'г.Кемерово, ул.Марковцева д.24, кв 229'},
-        {url: new URL('@/assets/images/footer/email.png',import.meta.url), title: 'email', text: 'alinakovalenko109@gmail.com'},
+        {url: new URL('@/assets/images/footer/telephone.png',import.meta.url), title: 'телефон', text: '+79001052270', toggle: false},
+        {url: new URL('@/assets/images/footer/whatsapp.png',import.meta.url), title: 'whatsapp', text: '+79001052270', toggle: false},
+        {url: new URL('@/assets/images/footer/vk.png',import.meta.url), title: 'в контакте', text: 'https://vk.com/id651967871', toggle: false},
+        {url: new URL('@/assets/images/footer/ok.png',import.meta.url), title: 'одноклассники', text: 'https://ok.ru/profile/573045179474', toggle: false},
+        {url: new URL('@/assets/images/footer/address.png',import.meta.url), title: 'адрес', text: 'г.Кемерово, ул.Марковцева д.24, кв 229', toggle: false},
+        {url: new URL('@/assets/images/footer/email.png',import.meta.url), title: 'email', text: 'alinakovalenko109@gmail.com', toggle: false},
     ])
 
     const phoneNumber = '+79001052270' // телефон для whatsapp

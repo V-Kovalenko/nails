@@ -1,14 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HomePage from "@/pages/HomePage.vue";
 import Header from "@/components/layout/Header.vue";
+const test = 123
 </script>
 
 <template>
   <div class="app">
     <Header/>
     <div class="content">
-      <RouterView/>
+      <RouterView />
     </div>
 
   </div>
@@ -16,6 +16,8 @@ import Header from "@/components/layout/Header.vue";
 
 <style scoped lang="scss">
 .app {
+  display: flex;
+  align-items: center;
   //max-width: 1920px;
   margin: 0 auto;
   width: 100%;

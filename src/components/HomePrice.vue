@@ -54,13 +54,11 @@ const price = usePrice()
   &__price-cards {
     display: grid;
     gap: 1rem;
-    box-shadow: 0 3px 6px rgb(14, 14, 14);
+    //box-shadow: 0 3px 6px rgb(14, 14, 14);
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 1fr;
     padding: 0.5rem;
     grid-auto-flow: row dense;
-
-
   }
 
   &__price-card {
@@ -75,6 +73,7 @@ const price = usePrice()
     background: $bg-section-about-nails;
     overflow: hidden;
     position: relative;
+    transition: 1s all;
 
 
     &:hover {
@@ -103,7 +102,7 @@ const price = usePrice()
 
   &__price-pic {
     //padding: 1rem;
-    height: 400px;
+    height: 300px;
     width: 100%;
     object-fit: cover;
   }

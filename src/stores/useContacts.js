@@ -14,6 +14,7 @@ const useContacts = defineStore('useContacts', () => {
     const phoneNumber = '+79001052270' // телефон для whatsapp
     const vkProfileUrl = `https://vk.com/id651967871` // init data для ВК
     const okProfileUrl = `https://ok.ru/profile/573045179474` // init data для ОК
+    const emailData = ref('alinakovalenko109@gmail.com') // init Data для Email
     const isAppInstalled = (appName) => {  // проверка установлено ли приложение на телефоне (вк или ок в данном случае)
         const userAgent = navigator.userAgent || navigator.vendor || window.opera
         return userAgent.toLowerCase().indexOf(appName) > -1
@@ -49,8 +50,15 @@ const useContacts = defineStore('useContacts', () => {
                 window.location.href = isAppInstalled('ok')? appUrl : okProfileUrl
             }
     }
+
+    const openEmail = (it) => {
+        if (it.title === 'email') {
+            window.location.href = `mailto:alinakovalenko109@gmail.com?subject=Новое письмо`
+        }
+    }
+
     return{
-        contacts, openWhatsApp, openVk, openOk
+        contacts, openWhatsApp, openVk, openOk, openEmail
     }
 })
 export default useContacts

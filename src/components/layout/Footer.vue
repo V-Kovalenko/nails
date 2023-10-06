@@ -7,6 +7,7 @@ const functionsForUseContacts = (it) => { // открытие элементов
   contacts.openWhatsApp(it)
   contacts.openVk(it)
   contacts.openOk(it)
+  contacts.openEmail(it)
 }
 /*показать текст в */
 const selectedCard = ref(null)
@@ -35,7 +36,7 @@ const getTextFunction = (it) => {
                 'footer__card',
                 {'footer__card_lg': item.title === 'адрес' || item.title === 'email'},
                 {'footer__card_sm': item.title !== 'адрес' && item.title !== 'email'}]"
-             v-for="(item, index) in contacts.contacts"
+             v-for="(item) in contacts.contacts"
              @click="functionsForUseContacts(item)"
              :key="item.title"
              @mouseover="showTextCards(item)"

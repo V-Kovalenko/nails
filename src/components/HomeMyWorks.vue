@@ -1,18 +1,46 @@
 <script setup>
 import Button from "@/components/ui/Button.vue";
 import useMyWorks from "@/stores/useMyWorks";
+import {computed, ref, toRefs} from "vue";
 const works = useMyWorks() // store works
+
+/*карусель картинок start >>>*/
+const currentIndex = ref(0) // определяет индекс изображение, с которого начинается отображение картинок
+const numDisplayImages = ref(3) // указывает количество картинок, которые отображаются одновременно
+const {images} = toRefs(works)
+
+const currentImage = computed(() => {  // добавляем картинки в массив, который отображаем на экране
+  const result = []
+  for (let i = 0; i < numDisplayImages.value; i++) {
+    const index = (currentIndex.value + i) % images.value.length // делаем карусель
+    result.push(images.value[index])
+  }
+  return result
+})
+const previousImage = () => { // картинки листаем влево
+  currentIndex.value = (currentIndex.value - 1 + images.value.length) % images.value.length;
+}
+
+const nextImage = () => {  // картинки листаем вправо
+  currentIndex.value = (currentIndex.value + 1) %  images.value.length
+}
+/*карусель картинок end <<<<*/
 </script>
 
 <template>
   <section class="home__my-works">
     <div class="home__my-works-container">
-      <div class="home__my-works-card" v-for="image in works.images" :key="image.url">
+<!--      <button @click="previousImage">previous</button>-->
+      <Button :mainBtn="false"  :carouselBtn="true" btnTitle="Назад" @click="previousImage"/>
+      <div class="home__my-works-card" v-for="image in currentImage" :key="image.url">
         <img :src="image.url" alt="" class="home__my-works-img">
         <div class="home__my-works-card-dark"></div>
         <div class="home__my-works-card-center"></div>
       </div>
+      <Button :mainBtn="false" :carouselBtn="true" btnTitle="Вперед" @click="nextImage"/>
+<!--      <button @click="nextImage">next</button>-->
     </div>
+
     <div class="home__my-works-btn">
       <Button/>
     </div>
@@ -30,14 +58,16 @@ const works = useMyWorks() // store works
 
   &__my-works-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 0.8fr 1fr 1fr 1fr 0.8fr;
     grid-auto-rows: auto;
     gap: 1rem;
-    max-width: 80%;
     margin: 0 auto;
+    align-items: center;
+    justify-items: center;
   }
 
   &__my-works-card {
+    //max-width: 85%;
     overflow: hidden; /* Обрезать содержимое, выходящее за границы карточки */
     position: relative; /* Для позиционирования вложенных элементов */
     box-shadow: 0 3px 12px rgb(14, 14, 14)

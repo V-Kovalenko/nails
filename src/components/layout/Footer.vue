@@ -118,6 +118,7 @@ const getTextFunction = (it) => {
       transition: 0.3s;
       cursor: pointer;
       z-index: 4;
+      box-shadow: 0 10px 8px rgb(14, 14, 14);
     .footer__card-text {
       opacity: 1;
     }

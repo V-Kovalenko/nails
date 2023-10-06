@@ -29,8 +29,8 @@ const nextImage = () => {  // картинки листаем вправо
 
 <template>
   <section class="home__my-works">
+    <h2 class="home__my-works-title">ФОТОГАЛЕРЕЯ</h2>
     <div class="home__my-works-container">
-<!--      <button @click="previousImage">previous</button>-->
       <Button :mainBtn="false"  :carouselBtn="true" btnTitle="Назад" @click="previousImage"/>
       <div class="home__my-works-card" v-for="image in currentImage" :key="image.url">
         <img :src="image.url" alt="" class="home__my-works-img">
@@ -38,11 +38,13 @@ const nextImage = () => {  // картинки листаем вправо
         <div class="home__my-works-card-center"></div>
       </div>
       <Button :mainBtn="false" :carouselBtn="true" btnTitle="Вперед" @click="nextImage"/>
-<!--      <button @click="nextImage">next</button>-->
     </div>
 
     <div class="home__my-works-btn">
-      <Button/>
+      <RouterLink to="/works">
+        <Button :btnTitle="'БОЛЬШЕ РАБОТ'"/>
+      </RouterLink>
+
     </div>
   </section>
 </template>
@@ -54,6 +56,12 @@ const nextImage = () => {  // картинки листаем вправо
     background: $bg-section-about-nails;
     padding: 1rem;
     margin-bottom: 4rem;
+  }
+  &__my-works-title {
+    text-align: center;
+    color: $title-color;
+    margin-bottom: 1rem;
+    font-size: 2rem;
   }
 
   &__my-works-container {
@@ -126,6 +134,8 @@ const nextImage = () => {  // картинки листаем вправо
     display: grid;
     justify-content: center;
     align-self: center;
+    grid-template-columns: auto auto;
+    gap: 1rem;
   }
 }
 </style>

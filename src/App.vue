@@ -5,7 +5,7 @@ const test = 123
 </script>
 
 <template>
-  <div class="app">
+  <div class="app app-container">
     <Header/>
     <div class="content">
       <RouterView />
@@ -14,13 +14,15 @@ const test = 123
   </div>
 </template>
 
-<style scoped lang="scss">
+<style  lang="scss">
 .app {
   display: flex;
   align-items: center;
   //max-width: 1920px;
   margin: 0 auto;
   width: 100%;
+  //background-color: red;
+  position: relative;
   //padding: 1rem;
 }
 

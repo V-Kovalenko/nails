@@ -79,7 +79,7 @@ const price = usePrice()
     &:hover {
       scale: 1.1;
       transition: 0.5s;
-
+      box-shadow: 0 10px 8px rgb(14, 14, 14);
     }
   }
 

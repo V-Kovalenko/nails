@@ -6,6 +6,7 @@ const navItems = ref([
   {title: 'Работы', path: '/', id:'#works'},
   {title: 'Прайс-лист', path: '/', id: '#price'},
   {title: 'Контакты', path: '/', id: '#contacts'},
+  {title: '+7(900) 105-22-70', path: '/', id: '#contacts'},
 ])
 
 </script>

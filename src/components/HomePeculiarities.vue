@@ -13,7 +13,6 @@ const initTextPeculiarities = ref('Гарантирую вам безопасн�
       <div class="home__peculiarities-text">
         <h3>БЕЗОПАСНОСТЬ</h3>
         <p>{{ initTextPeculiarities }}</p>
-        <Button/>
       </div>
       <div class="home__peculiarities-img">
         <img src="@/assets/images/peculiarities/peculiarities-img.jpg" alt="peculiarities-img">

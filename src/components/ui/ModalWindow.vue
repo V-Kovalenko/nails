@@ -13,7 +13,7 @@ const closeOpenModalWindow = () => {
 
 <template>
   <div class="modal-window">
-    <div class="modal-window__container" v-if="props.img.photoSize">
+    <div class="modal-window__container" v-if="props.img.photoSize" @click="closeOpenModalWindow">
       <img
           :src="props.img.url"
           alt="img"
@@ -43,11 +43,11 @@ const closeOpenModalWindow = () => {
   }
   &__close {
     font-size: 4rem;
-    width: 300px;
-    height: 300px;
+    width: min-content;
+    height: min-content;
     position: absolute;
     top: 10%;
-    right: 10%;
+    right: 25%;
     color: #ebebec;
     z-index: 99;
     cursor: pointer;

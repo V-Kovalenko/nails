@@ -13,12 +13,17 @@ const props = defineProps({
   carouselBtn: {
     type: Boolean,
     default: false
+  },
+  modalWindowBtn: {
+    type: Boolean,
+    default: false
   }
 })
 const btnStyles = computed(() => {
   return {
     'btn': props.mainBtn,
-    'btnCarousel': props.carouselBtn
+    'btnCarousel': props.carouselBtn,
+    'btnModalWindow': props.modalWindowBtn
   }
 })
 </script>
@@ -74,4 +79,21 @@ const btnStyles = computed(() => {
   }
 }
 /*кнопка для карусели картинок end*/
+
+/*кнопка для карусели картинок для ModalWindow start*/
+.btnModalWindow {
+  font-size: 1.2rem;
+  background: white;
+  height: max-content;
+  width: 6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: black;
+  &:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: 0.3s all;
+  }
+}
+/*кнопка для карусели картинок для ModalWindow end*/
 </style>

@@ -6,16 +6,17 @@ import ModalWindow from "@/components/ui/ModalWindow.vue";
 
 const works = useMyWorks()
 const {imagesWorks} = toRefs(works)
-
-const toggleModalWindow = ref(false)
-const openModalWindow = (it) => {
+/*открыть модальное окно и отобразить кликнутое изображение в модалке start*/
+const toggleModalWindow = ref(false) // состояние для модального окна (открыть, закрыть)
+const openModalWindow = (it) => { // открыть модальное окно и изменить состояние выбранной картинки для отображения в модалке
   toggleModalWindow.value = true
   it.photoSize = true
 
 }
-const closeOpenModalWindow = (it) => {
+const closeOpenModalWindow = (it) => { // закрыть модальное окно (принимает emit из модального окна)
   it.photoSize = false
 }
+/*открыть модальное окно и отобразить кликнутое изображение в модалке end*/
 </script>
 
 <template>

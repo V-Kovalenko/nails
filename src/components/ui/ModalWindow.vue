@@ -1,30 +1,65 @@
 <script setup>
-const emit = defineEmits(['emitClose'])
+import Button from "@/components/ui/Button.vue";
+import useMyWorks from "@/stores/useMyWorks";
+import {computed, ref} from "vue";
+
+const emit = defineEmits(['emitClose', 'emitPrevious', 'emitNext'])
+
 const props = defineProps({
   img: {
     type: Object,
     default: {}
+  },
+  imageIndex: {
+    type:Number,
+    default: 0
   }
 })
-const closeOpenModalWindow = () => {
+
+
+const closeOpenModalWindow = () => { // закрываем модальное окно
   emit('emitClose')
 }
+const previousImage = () => { // листать фото назад
+  emit('emitPrevious')
+}
+const nextImage = () => { // листать фото вперед
+  emit('emitNext')
+}
+
+const urlImage = computed(() => { // Url картинок, меняется в зависимости от индекса из пропсов
+  return `http://127.0.0.1:5174/src/assets/images/myWorks/work${props.imageIndex + 1}.jpg`
+})
 </script>
 
 <template>
   <div class="modal-window">
-    <div class="modal-window__container" v-if="props.img.photoSize" @click="closeOpenModalWindow">
+    <div class="modal-window__container">
+      <Button
+          @click="previousImage"
+          :carouselBtn="true"
+          btnTitle="Назад"
+          :mainBtn="false" />
       <img
-          :src="props.img.url"
+          :src="urlImage"
           alt="img"
           class="modal-window__img"
       >
       <span class="modal-window__close" @click="closeOpenModalWindow">X</span>
+      <Button
+          :carouselBtn="true"
+          :mainBtn="false"
+          @click="nextImage"
+          btnTitle="Вперед"
+      />
+
     </div>
+
   </div>
 </template>
 
 <style scoped lang="scss">
+@import "@/assets/scss/colors";
 .modal-window {
   display: flex;
   justify-content: center;
@@ -33,12 +68,13 @@ const closeOpenModalWindow = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 70%);
+    background: rgba(0, 0, 0, 0.2);
     width: 100vw;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
+
 
   }
   &__close {
@@ -51,15 +87,16 @@ const closeOpenModalWindow = () => {
     color: #ebebec;
     z-index: 99;
     cursor: pointer;
-
     &:hover {
-      opacity: 0.8;
+      color: $pink-color-size-and-bg-btn;
     }
   }
   &__img {
     width: 30%;
     height: auto;
     z-index: 9;
+    margin: 0 10rem;
+
   }
 }
 

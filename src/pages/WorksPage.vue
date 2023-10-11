@@ -6,29 +6,42 @@ import ModalWindow from "@/components/ui/ModalWindow.vue";
 
 const works = useMyWorks()
 const {imagesWorks} = toRefs(works)
+console.log('imagesWorks', )
 /*открыть модальное окно и отобразить кликнутое изображение в модалке start*/
 const toggleModalWindow = ref(false) // состояние для модального окна (открыть, закрыть)
-const openModalWindow = (it) => { // открыть модальное окно и изменить состояние выбранной картинки для отображения в модалке
+const openModalWindow = (index) => { // открыть модальное окно и изменить состояние выбранной картинки для отображения в модалке
   toggleModalWindow.value = true
-  it.photoSize = true
+  // it.photoSize = true
+  currentIndex.value = index
 
 }
 const closeOpenModalWindow = (it) => { // закрыть модальное окно (принимает emit из модального окна)
-  it.photoSize = false
+  // it.photoSize = false
+  toggleModalWindow.value = false
 }
 /*открыть модальное окно и отобразить кликнутое изображение в модалке end*/
+const currentIndex = ref(0)
+const getPreviousImage = () => {
+    return currentIndex.value =  (currentIndex.value - 1 + imagesWorks.value.length) % imagesWorks.value.length
+}
+const nextImage = () => {  // картинки листаем вправо
+  currentIndex.value = (currentIndex.value + 1) %  imagesWorks.value.length
+}
 </script>
 
 <template>
 
   <div class="works-page">
     <div class="works-page__container">
-      <div class="works-page__content" v-for="image in imagesWorks">
-        <img :src="image.url" alt="img" class="works-page__img" @click="openModalWindow(image)">
+      <div class="works-page__content" v-for="(image, index) in imagesWorks">
+        <img :src="image.url" alt="img" class="works-page__img" @click="openModalWindow(index)">
         <ModalWindow
             v-if="toggleModalWindow"
-            :img="image"
+            :img="image.url"
             @emitClose="closeOpenModalWindow(image)"
+            :imageIndex="currentIndex"
+            @emitPrevious="getPreviousImage"
+            @emitNext="nextImage"
         />
       </div>
     </div>
@@ -63,13 +76,13 @@ const closeOpenModalWindow = (it) => { // закрыть модальное ок
     border-radius: 5%;
     box-shadow: 0 3px 12px rgb(14, 14, 14);
 
-
     &:hover {
       scale: 1.1;
       transition: .8s all;
       border-radius: 10%;
       transform: translateY(-1.2rem);
       box-shadow: 0 31px 12px rgb(14, 14, 14);
+      cursor: pointer;
     }
   }
 

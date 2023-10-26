@@ -1,7 +1,6 @@
 <script setup>
 import Button from "@/components/ui/Button.vue";
-import useMyWorks from "@/stores/useMyWorks";
-import {computed, ref} from "vue";
+import {computed, reactive, ref} from "vue";
 
 const emit = defineEmits(['emitClose', 'emitPrevious', 'emitNext'])
 
@@ -30,6 +29,12 @@ const nextImage = () => { // листать фото вперед
 const urlImage = computed(() => { // Url картинок, меняется в зависимости от индекса из пропсов
   return `http://127.0.0.1:5174/src/assets/images/myWorks/work${props.imageIndex + 1}.jpg`
 })
+
+const zoomImage = () => {
+  // Логика увеличения фотографии
+};
+
+
 </script>
 
 <template>
@@ -92,7 +97,7 @@ const urlImage = computed(() => { // Url картинок, меняется в �
     }
   }
   &__img {
-    width: 30%;
+    width: 45%;
     height: auto;
     z-index: 9;
     margin: 0 10rem;

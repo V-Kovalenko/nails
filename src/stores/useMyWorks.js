@@ -10,27 +10,10 @@ const useMyWorks = defineStore('useMyWorks', () => {
         {url: new URL("@/assets/images/myWorks/work5.jpg",import.meta.url)},
         {url: new URL("@/assets/images/myWorks/work6.jpg",import.meta.url)},
     ])
-
+    /*add photos to array imagesWorks for component HomeMyWorks >>>>*/
     const imagesWorks = ref([])
-    // const imagesWorks = ref([
-    //     {url: new URL("@/assets/images/myWorks/work1.jpg",import.meta.url), photoSize: false},
-    //     {url: new URL("@/assets/images/myWorks/work2.jpg",import.meta.url), photoSize: false},
-    //     {url: new URL("@/assets/images/myWorks/work3.jpg",import.meta.url), photoSize: false},
-    //     {url: new URL("@/assets/images/myWorks/work4.jpg",import.meta.url), photoSize: false},
-    //     {url: new URL("@/assets/images/myWorks/work5.jpg",import.meta.url), photoSize: false},
-    //     {url: new URL("@/assets/images/myWorks/work6.jpg",import.meta.url), photoSize: false},
-    // ])
-    const imagesWorks1 = ref([
-        {url: new URL("@/assets/images/myWorks/work1.jpg",import.meta.url), photoSize: false},
-        {url: new URL("@/assets/images/myWorks/work2.jpg",import.meta.url), photoSize: false},
-        {url: new URL("@/assets/images/myWorks/work3.jpg",import.meta.url), photoSize: false},
-        {url: new URL("@/assets/images/myWorks/work4.jpg",import.meta.url), photoSize: false},
-        {url: new URL("@/assets/images/myWorks/work5.jpg",import.meta.url), photoSize: false},
-        {url: new URL("@/assets/images/myWorks/work6.jpg",import.meta.url), photoSize: false},
-    ])
-    console.log('imagesWorks1', imagesWorks1)
-    const countWorks =ref(34)
-    function addWorks () {
+    const countWorks =ref(34) // количество для компонента myWorks
+    function addWorks () { // добавление фото работ
 
         const result = []
         for (let i = 1; i <= countWorks.value; i+=1) {
@@ -40,9 +23,8 @@ const useMyWorks = defineStore('useMyWorks', () => {
 
         imagesWorks.value = result
     }
-
-
         addWorks()
+    /*add photos to array imagesWorks for component HomeMyWorks <<<<<*/
     return {
         images, imagesWorks,
     }

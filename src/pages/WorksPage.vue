@@ -4,9 +4,9 @@ import {ref, toRefs, watch} from "vue";
 import Footer from "@/components/layout/Footer.vue";
 import ModalWindow from "@/components/ui/ModalWindow.vue";
 
+
 const works = useMyWorks()
 const {imagesWorks} = toRefs(works)
-console.log('imagesWorks', )
 /*открыть модальное окно и отобразить кликнутое изображение в модалке start*/
 const toggleModalWindow = ref(false) // состояние для модального окна (открыть, закрыть)
 const openModalWindow = (index) => { // открыть модальное окно и изменить состояние выбранной картинки для отображения в модалке
@@ -35,6 +35,7 @@ const nextImage = () => {  // картинки листаем вправо
     <div class="works-page__container">
       <div class="works-page__content" v-for="(image, index) in imagesWorks">
         <img :src="image.url" alt="img" class="works-page__img" @click="openModalWindow(index)">
+
         <ModalWindow
             v-if="toggleModalWindow"
             :img="image.url"

@@ -27,7 +27,7 @@ const nextImage = () => { // листать фото вперед
 }
 
 const urlImage = computed(() => { // Url картинок, меняется в зависимости от индекса из пропсов
-  return `http://127.0.0.1:5174/src/assets/images/myWorks/work${props.imageIndex + 1}.jpg`
+  return `myWorks/work${props.imageIndex + 1}.jpg`
 })
 
 const zoomImage = () => {
@@ -73,12 +73,13 @@ const zoomImage = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.07);
     width: 100vw;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 999;
 
 
   }
@@ -90,14 +91,13 @@ const zoomImage = () => {
     top: 10%;
     right: 25%;
     color: #ebebec;
-    z-index: 99;
     cursor: pointer;
     &:hover {
       color: $pink-color-size-and-bg-btn;
     }
   }
   &__img {
-    width: 45%;
+    width: 40%;
     height: auto;
     z-index: 9;
     margin: 0 10rem;

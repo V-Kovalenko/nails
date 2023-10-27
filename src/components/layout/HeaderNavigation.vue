@@ -25,22 +25,22 @@ const navItems = ref([
 @import "@/assets/scss/colors.scss";
 
 .nav {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
-
-
+  margin-left: 10rem;
   &__container {
-
   }
 
   &__content {
     &:hover {
       color: $pink-color-size-and-bg-btn;
       cursor: pointer;
+      border-bottom: 2px solid $pink-color-size-and-bg-btn;
     }
   }
 

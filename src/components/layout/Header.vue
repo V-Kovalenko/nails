@@ -47,12 +47,16 @@ onUnmounted(() => { // удаляем эвент
 
 
   &__wrapper {
-    display: grid;
-    grid-auto-flow: column;
-    max-width: 60%;
-    margin: 0 auto;
+    //display: grid;
+    //grid-auto-flow: column;
+    //max-width: 60%;
+    //margin: 0 auto;
+    //align-items: center;
+    //justify-items: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-items: center;
+
 
   }
 }

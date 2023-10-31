@@ -23,7 +23,14 @@ const navItems = ref([
 
 <style scoped lang="scss">
 @import "@/assets/scss/colors.scss";
-
+//@media screen and (max-width: 1919px){
+//  .nav {
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    column-gap: 3rem;
+//  }
+//}
 .nav {
   display: flex;
   justify-content: center;
@@ -32,7 +39,11 @@ const navItems = ref([
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
-  margin-left: 10rem;
+
+  //@media screen and (max-width: 1100px){
+  //  column-gap: 1rem;
+  //  margin-left: 5rem;
+  //}
   &__container {
   }
 

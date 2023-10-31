@@ -44,7 +44,12 @@ onUnmounted(() => { // удаляем эвент
   width: 100%;
   min-height: 10%;
   z-index: 100;
-
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+    &__logo-link {
+      margin-right: 12rem;
+    }
 
   &__wrapper {
     //display: grid;

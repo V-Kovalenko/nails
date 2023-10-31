@@ -65,6 +65,7 @@ const nextImage = () => {  // картинки листаем вправо
     gap: 1rem;
     margin: 0 auto;
     padding: 5rem 2rem 1rem 2rem;
+    width: 100%;
 
   }
 
@@ -91,5 +92,7 @@ const nextImage = () => {  // картинки листаем вправо
     height: 100px;
   }
 }
+img {
 
+}
 </style>

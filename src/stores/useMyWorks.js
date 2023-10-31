@@ -12,7 +12,7 @@ const useMyWorks = defineStore('useMyWorks', () => {
     ])
     /*add photos to array imagesWorks for component HomeMyWorks >>>>*/
     const imagesWorks = ref([])
-    const countWorks =ref(34) // количество для компонента myWorks
+    const countWorks =ref(32) // количество для компонента myWorks
     function addWorks () { // добавление фото работ
 
         const result = []

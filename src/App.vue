@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import Header from "@/components/layout/Header.vue";
-const test = 123
 </script>
 
 <template>
@@ -18,12 +17,10 @@ const test = 123
 .app {
   display: flex;
   align-items: center;
-  //max-width: 1920px;
+  justify-content: center;
   margin: 0 auto;
   width: 100%;
-  //background-color: red;
   position: relative;
-  //padding: 1rem;
 }
 
 </style>
